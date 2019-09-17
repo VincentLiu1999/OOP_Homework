@@ -1,0 +1,16 @@
+ #include <iostream>
+02 #include <math.h>
+03 using namespace std;
+04 void main()
+05 {
+06     double a, b, c, s, area;
+07     cin >> a >> b >> c;
+08     if (a + b <= c || a + c <= b || b + c <= a)
+09         cout << "三条边无法组成三角形" << endl;
+10     else
+11     {
+12         s = 1.0 / 2 * (a + b + c);
+13         area = sqrt(s * (s - a) * (s - b) * (s - c));
+14         cout << "面积为：" << area << endl;
+15     }
+16 }
