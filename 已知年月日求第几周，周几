@@ -1,0 +1,59 @@
+#define _CRT_SECURE_NO_WARNINGS
+02 #include <stdio.h>
+03 #include<iostream>
+04 using namespace std;
+05 int main()
+06 {
+07     int year, month, day;
+08     int tempmonth, yearday;
+09     int week, weekday;
+10     unsigned int sum = 0;
+11     int tag = 0;
+12     printf("输入年、月、日:\n");
+13     scanf("%d %d %d", &year, &month, &day);
+14     tag = (year - 1980) / 4;
+15     sum = (year - 1984) * 365 + tag;
+16     tempmonth = month - 1;
+17     yearday = 0;
+18     switch (tempmonth)
+19     {
+20     case 12:
+21         yearday += 31;
+22     case 11:
+23         yearday += 30;
+24     case 10:
+25         yearday += 31;
+26     case 9:
+27         yearday += 30;
+28     case 8:
+29         yearday += 31;
+30     case 7:
+31         yearday += 31;
+32     case 6:
+33         yearday += 30;
+34     case 5:
+35         yearday += 31;
+36     case 4:
+37         yearday += 30;
+38     case 3:
+39         yearday += 31;
+40     case 2:
+41         yearday += 28;
+42     case 1:
+43         yearday += 31;
+44     }
+45     yearday = yearday + day;
+46     if ((year - 1984) % 4 == 0 && month > 2)
+47     {
+48         yearday += 1;
+49     }
+50     sum = sum + yearday;
+51     if (year == 1984)
+52     {
+53         sum -= 1;
+54     }
+55     weekday = (sum - 1) % 7;
+56     week = yearday / 7;
+57     printf("今天是第%d个星期，星期%d", week, weekday);
+58     return 0;
+59 }
